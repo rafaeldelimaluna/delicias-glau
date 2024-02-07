@@ -1,0 +1,30 @@
+.picked {
+    background-color: var(--bg-primary-light-80);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 1em;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.picked-img {
+    width: 40%;
+    margin-right: 3em;
+}
+
+.picked-content {
+    text-align: center;
+}
+
+.radio-opts {
+    position: relative;
+}
+
+.opt {
+    position: relative;
+    display: block;
+    margin-left: 0;
+}

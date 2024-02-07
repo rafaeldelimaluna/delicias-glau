@@ -1,0 +1,70 @@
+$bg-light-0: #e63484;
+$bg-light-10: #e84890;
+$bg-light-20: #eb5c9c;
+$bg-light-30: #ed70a8;
+$bg-light-40: #f085b5;
+$bg-light-50: #f299c1;
+$bg-light-60: #f5adcd;
+$bg-light-70: #f7c2da;
+$bg-light-80: #fad6e6;
+$bg-light-90: #fceaf2;
+$bg-dark-0: #e63484;
+$bg-dark-10: #cf2e76;
+$bg-dark-20: #b82969;
+$bg-dark-30: #a1245c;
+$bg-dark-40: #8a1f4f;
+$bg-dark-50: #731a42;
+$bg-dark-60: #5c1434;
+$bg-dark-70: #450f27;
+$bg-dark-80: #2d0a1a;
+$bg-dark-90: #16050d;
+
+.card {
+    margin-top: 1em;
+    padding: 1.2em;
+    border-radius: 1em;
+    box-shadow: 0.1em 0.1em 0.81em rgba(0, 0, 0, 0.26);
+    transition: 0.3s;
+
+    &:hover {
+        transform: scale(0.95);
+    }
+}
+
+a.card-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: $bg-light-80;
+
+    &:hover {
+        background-color: $bg-light-70;
+    }
+}
+
+.card-content {
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+}
+
+.card-img {
+    margin: auto;
+}
+
+.card-button {
+    font-size: 0.8em;
+    border-radius: 1em;
+    border-color: transparent;
+    box-sizing: border-box;
+    width: 40%;
+}

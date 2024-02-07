@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --bg-light-0: #e63484;
+    --bg-light-10: #e84890;
+    --bg-light-20: #eb5c9c;
+    --bg-light-30: #ed70a8;
+    --bg-light-40: #f085b5;
+    --bg-light-50: #f299c1;
+    --bg-light-60: #f5adcd;
+    --bg-light-70: #f7c2da;
+    --bg-light-80: #fad6e6;
+    --bg-light-90: #fceaf2;
+    --bg-dark-0: #e63484;
+    --bg-dark-10: #cf2e76;
+    --bg-dark-20: #b82969;
+    --bg-dark-30: #a1245c;
+    --bg-dark-40: #8a1f4f;
+    --bg-dark-50: #731a42;
+    --bg-dark-60: #5c1434;
+    --bg-dark-70: #450f27;
+    --bg-dark-80: #2d0a1a;
+    --bg-dark-90: #16050d;
+    --bg-secundary-light-0: #e69634;
+    --bg-secundary-light-10: #ecad61;
+    --bg-secundary-light-20: #f1c58f;
+    --bg-secundary-light-30: #f7dcbc;
+    --bg-secundary-light-40: #fcf4ea;
+    --bg-secundary-light-50: #fff;
+    --bg-secundary-light-60: #fff;
+    --bg-secundary-light-70: #fff;
+    --bg-secundary-light-80: #fff;
+    --bg-secundary-light-90: #fff;
+    --bg-secundary-dark-0: #e69634;
+    --bg-secundary-dark-10: #ce7d19;
+    --bg-secundary-dark-20: #a06114;
+    --bg-secundary-dark-30: #73460e;
+    --bg-secundary-dark-40: #452a09;
+    --bg-secundary-dark-50: #180f03;
+    --bg-secundary-dark-60: #000;
+    --bg-secundary-dark-70: #000;
+    --bg-secundary-dark-80: #000;
+    --bg-secundary-dark-90: #000;
+}
+
+html {
+    font-size: 2vmax;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95vw;
+    margin: auto;
+}
