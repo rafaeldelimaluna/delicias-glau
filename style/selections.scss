@@ -25,8 +25,8 @@ h2 {
     width: 100%;
     min-height: 100vh;
     background-color: #FBEDDC;
-    // position: absolute;
-    // left: 100%;
+    position: absolute;
+    left: 100%;
     transition: .5s;
 
     &.active {
@@ -38,7 +38,7 @@ h2 {
     & h2.subitem {
         width: 50%;
         border-radius: 1em;
-        background-color: var(--bg-ternary-light-0);
+        background-color: var(--bg-ternary-light-20);
     }
 
     & h1.max-2::after {
@@ -139,6 +139,7 @@ h2 {
     border: 1px solid transparent;
     // animation: button_animation 0.5s 2s infinite alternate linear;
     // animation-play-state: paused;
+    cursor: pointer;
     transition: 0.25s;
 
     .menu-selection & {
