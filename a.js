@@ -1,7 +1,5 @@
-Object.keys(selections).forEach((key) => {
-    if (selections[key].length > 0) {
-        selections[key].forEach((el) => {
-            this.result.push(`${el.dataset['content']}`)
-        })
-    }
+fetch('data.json').then((response) => {
+    response.json().then((dados) => {
+        console.log(dados)
+    })
 })

@@ -1,3 +1,9 @@
+const bolo_tamanho_dado = {
+    Pequeno: { preco: 180, rendimento: "25/30" },
+    Médio: { preco: 280, rendimento: "30/40" },
+    Grande: { preco: 380, rendimento: "40/50" }
+}
+
 const menus_selection = [...document.getElementsByClassName("menu-selection")]
 const buttons = [...document.getElementsByClassName('button-option')]
 const dough_btns = [...document.getElementsByClassName('button-dough')]
@@ -102,28 +108,48 @@ function select_last_to_next(name, el_array, selection_k, nMax, nMin, button_nex
                 function revision() {
                     if (next_menu.id == 'revision') {
                         selections.fruta = [...document.querySelectorAll('.button-option.button-fruit.active')]
-                        this.info = document.getElementById('info')
-                        const table = document.createElement('table')
-                        const thead = document.createElement('thead')
-                        const tr = document.createElement('tr')
-                        const th = document.createElement('th')
-                        const td = document.createElement('td')
-                        this.result = ['<thead><tr><th colspan="5">Resumo</th></tr></thead>']
+                        this.result = ['<thead><th colspan="5">Resumo</th></thead>']
                         Object.keys(selections).forEach((key) => {
                             if (selections[key].length > 0) {
                                 if (key == 'decoracao') {
-                                    this.result.push(`<tr><th>Decoração</th>`);
+                                    this.result.push(`<tbody><tr><th>Decoração</th>`);
                                 }
                                 else {
                                     this.result.push(`<tr> <th>${key}</th>`);
                                 }
                                 selections[key].forEach((el) => {
-                                    this.result.push(`${el.dataset['content']}`)
+                                    switch (el.dataset['content']) {
+                                        case 'Pequeno':
+                                            console.log('Pequeno')
+                                            this.bolo_tamanho = bolo_tamanho_dado.Pequeno
+                                        case "Médio":
+                                            console.log("Médio")
+                                            this.bolo_tamanho = bolo_tamanho_dado.Médio
+                                        case "Grande":
+                                            console.log("Grande")
+                                            this.bolo_tamanho = bolo_tamanho_dado.Grande
+                                        case "Pequeno":
+                                        case "Médio":
+                                        case "Grande":
+                                            console.log(this.bolo_tamanho.preco)
+                                            console.log(this.bolo_tamanho.rendimento)
+                                            break
+                                        default:
+                                            this.result.push(`${el.dataset['content']}`)
+                                            break
+                                    }
                                 })
                             }
                         })
                         // console.log(this.result)
-                        this.info.innerHTML = `<table>${this.result.join('<td>')}</table> `
+                        let result_str = ''
+                        for (let i = 0; i < this.result.length; i++) {
+                            if (this.result[i] != '') {
+                                result_str += ("<td>" + this.result[i] + "</td>")
+                            }
+                        }
+                        console.log(result_str)
+                        document.getElementById('info').innerHTML = `<table>${result_str}</table> `
                     }
                 }
 
