@@ -26,9 +26,9 @@ tbody tr {
     border-top: 1px solid black;
 }
 
-tbody tr:first-child {
+/* tbody tr:first-child {
     display: none;
-}
+} */
 
 tbody th {
     border-right: 1px solid black;

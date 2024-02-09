@@ -12,64 +12,22 @@
 
 <body>
 
-    <div class="menu-selection active" id="revision">
-        <h1>Revisão</h1>
-        <div id="info">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th colspan="4">Resumo</th>
-                    </tr>
-                </thead>
-                <caption>Resumo</caption>
-                <tbody>
-                    <tr>
-                        <th>massa</th>
-                        <td>Chocolate</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>recheios</th>
-                        <td>Beijinho</td>
-                        <td>Pistache</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>fruta</th>
-                        <td>Abacaxi</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>tamanho</th>
-                        <td>Médio
-                            rende 30/40
-                            R$ 280</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>decoracao</th>
-                        <td>Kinder Bueno</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <p id="ta" style="position: absolute;background-color: white; width: 100vw;"></p>
-    <script>
-        const table = document.querySelector('table')
-        const textarea = document.getElementById('ta')
-        textarea.innerHTML = 'Ola'
-        textarea.addEventListener("click", () => {
-            for (let i = 0; i < 2; i++) {
-                const tr = document.createElement('tr')
-                const td = document.createElement('td')
-                let text = document.createTextNode("HAHAAHAH")
-                td.appendChild(text)
-                tr.appendChild(td)
-                document.getElementById('table').appendChild(tr)
-            }
-        })
-        // tr.appendChild(td)
+    <table>
+        <thead>
+            <tr>
+                <th>Resumo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>massa</th>
+                <td>Olá</td>
+                <th>recheios</th>
+                <th>tamanho</th>
+                <th>Decoração</th>
+            </tr>
+        </tbody>
+    </table>
     </script>
 </body>
 
