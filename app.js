@@ -30,9 +30,11 @@ btn_test.addEventListener('click', () => {
     menu.dough.content.classList.toggle('active')
 })
 
+var requisitions_revision = 0
 
 const Table = {
     table_str: () => {
+        Table.table_html = []
         Table.table_html.push(`<thead>${Table.thead_html.join('')}</thead>`);
         Table.table_html.push(`<tbody>${Table.tbody_html.join('')}</tbody>`);
         Table.table_html.push(`<tfoot>${Table.tfoot_html.join('')}</tfoot>`);
@@ -123,8 +125,9 @@ function select_last_to_next(name_step, button_array_step, selection_client_step
                 if (next_menu.id == 'revision') { button_next.addEventListener("click", revision) }
 
                 function revision() {
-                    Table.table_reset()
+                    requisitions_revision += 1
                     selections_client_all_steps.fruta = [...document.querySelectorAll('.button-option.button-fruit.active')]
+                    Table.table_reset()
                     Table.push.th("Resumo", "5")
                     Table.push.ths_to.tr()
                     Table.push.trs_to.thead()
@@ -152,7 +155,7 @@ function select_last_to_next(name_step, button_array_step, selection_client_step
                                     this.dataset_key_array = Object.keys(el.dataset)
                                     this.dataset_key_array.forEach((dataset_key) => {
                                         if (dataset_key == searchable) {
-                                            console.log("Additional new price -> " + (this.dataset_array[dataset_key]));
+                                            // console.log("Additional new price -> " + (this.dataset_array[dataset_key]));
                                             price += parseInt(this.dataset_array[dataset_key])
                                             return this.dataset_array[dataset_key]
                                         }
@@ -160,19 +163,17 @@ function select_last_to_next(name_step, button_array_step, selection_client_step
                                 }
                             }
                             function get_elements_dataset() {
+                                console.log(el.dataset['content'])
                                 switch (el.dataset['content']) {
                                     case 'Pequeno':
-                                        console.log('Pequeno')
                                         tamanho_selecionado = tamanhos_dado.Pequeno
                                         IteractSizeAndPushToTableArray()
                                         break
                                     case "Médio":
-                                        console.log("Médio")
                                         tamanho_selecionado = tamanhos_dado.Médio
                                         IteractSizeAndPushToTableArray()
                                         break
                                     case "Grande":
-                                        console.log("Grande")
                                         tamanho_selecionado = tamanhos_dado.Grande
                                         IteractSizeAndPushToTableArray()
                                         break
@@ -196,7 +197,6 @@ function select_last_to_next(name_step, button_array_step, selection_client_step
                                 else {
                                     Table.push.th(key)
                                     Table.push.ths_to.tr()
-                                    Table.push.trs_to.tbody()
                                 }
                                 create_table_array(key)
                             }
@@ -207,6 +207,7 @@ function select_last_to_next(name_step, button_array_step, selection_client_step
                     Table.push.trs_to.tbody()
                     console.log(Table.table_str())
                     document.getElementById('info').innerHTML = `${Table.table_str()}`
+
                 }
 
                 //---------------Fruitable-------------------
