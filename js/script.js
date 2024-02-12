@@ -1,8 +1,3 @@
-const tamanhos_dado = {
-    Pequeno: { Pequeno: "Pequeno", rendimento: "25/30", preco: 180 },
-    Médio: { Médio: "Médio", rendimento: "30/40", preco: 280 },
-    Grande: { Grande: "Grande", rendimento: "40/50", preco: 380 }
-}
 function addSpeaker_in_BackButtons() {
     const back_buttons = [...document.getElementsByClassName('button-back')]
     const menus_selection = [...document.getElementsByClassName("menu-selection")]
@@ -37,8 +32,20 @@ function declare_global_variabes(return_menus_array = false, return_menu_keys = 
     else if (return_menu_keys) { return Object.keys(menu) }
 
 }
+
+const node = {
+    td: document.createElement('td'),
+    tr: document.createElement('tr'),
+    th: document.createElement('th'),
+    tbody: document.createElement('tbody'),
+    thead: document.createElement('tfoot'),
+    tfoot: document.createElement('thead'),
+    text_smok: document.createTextNode(''),
+    text_node: function craeteTextNode_node(text) { return document.createTextNode(text) },
+}
 const menu = declare_global_variabes(true)
 const menu_keys_global = declare_global_variabes(false, true)
+// const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
 const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
 
 var TBODY = []
@@ -47,10 +54,156 @@ const btn_test = document.getElementById("click-test")
 btn_test.addEventListener('click', () => {
     menu.dough.content.classList.toggle('active')
 })
+function translateKeyToPortugueseOrEnglish(entry) {
+    const key_translater = (word_english) => {
+        switch (word_english) {
+            case "dough":
+                return "massa"
+            case "fill":
+                return "recheio"
+            case "fruit":
+                return "fruta"
+            case "size":
+                return "tamanho"
+            case "decoration":
+                return "Decoração"
+            case "revision":
+                return "Revisão"
+            case "massa":
+                return "dough"
+            case "recheio":
+                return "fill"
+            case "fruta":
+                return "fruit"
+            case "tamanho":
+                return "size"
+            case "Decoração":
+                return "decoration"
+            case "Revisão":
+                return "revision"
+        }
+    }
+    if (typeof entry == 'object') {
+        return entry.map((el) => key_translater(el))
+    }
+    else {
+        return key_translater(entry)
+    }
+}
+function getKeys_of_history_of_buttons() {
+    return Object.keys(history_of_buttons)
+}
+
+
+
+function makeThead() {
+    const thead_node = document.createElement('thead')
+    const thead_text_node = document.createTextNode('Resumo')
+    const th_node = document.createElement('th')
+    th_node.appendChild(thead_text_node)
+    th_node.setAttribute("colspan", 5)
+    thead_node.appendChild(th_node)
+    return thead_node
+
+}
+function getValuesContentOfHistoryButtons() {
+    const keys = getKeys_of_history_of_buttons()
+    let td_node = node.td
+    let tr_node = node.tr
+    let th_node = node.th
+    let text_node = node.text_smok
+    let last_key = ''
+    let key_translated = ''
+    const tbody_node = document.createElement("tbody")
+    keys.map((key) => getValues(key))
+    function getValues(key) {
+        history_of_buttons[key].map((el, i) => {
+            if (i == 0) {
+            }
+            td_node = document.createElement('td')
+            text_node = document.createTextNode(el.dataset['content'])
+
+            td_node.appendChild(text_node)
+            if (key == last_key) {
+                tr_node.appendChild(td_node)
+            }
+            else {
+                tbody_node.appendChild(tr_node)
+                tr_node = document.createElement('tr')
+                key_translated = translateKeyToPortugueseOrEnglish(key)
+                th_text = document.createTextNode(key_translated)
+                th_node = document.createElement('th')
+                th_node.appendChild(th_text)
+
+                tr_node.appendChild(th_node)
+                tr_node.appendChild(td_node)
+            }
+            last_key = key
+        })
+    }
+    return tbody_node
+}
+function getPrice() {
+    const keys = getKeys_of_history_of_buttons()
+    const tfoot_node = document.createElement('tfoot')
+    let tr_node = document.createElement('tr')
+    let td0_node = node.td
+    let td1_node = node.td
+    let td2_node = node.td
+    let td0_text_node = node.text_smok
+    let td1_text_node = node.text_smok
+    let td2_text_node = node.text_smok
+    let button_dataset = Object
+    keys.map((key) => {
+        history_of_buttons[key].forEach((el) => {
+            button_dataset = el.dataset
+            if (button_dataset['price'] != undefined) {
+                td_node = document.createElement('td')
+                if (el.parentElement.id == 'special') {
+                    td0_text_node = document.createTextNode(`Recheio Especial `)
+                    node.text_node(`${button_dataset.content}`)
+                    node.text_node(`R$ ${button_dataset.price}`)
+                    td0_node.appendChild()
+                }
+                else {
+                    td0_text_node = document.createTextNode(`${button_dataset.content} + R$ ${button_dataset.price}`)
+                }
+                td_node.appendChild(td0_text_node)
+                tr_node.appendChild(td_node)
+                tfoot_node.appendChild(tr_node)
+                td_node = node.td
+                tr_node = node.tr
+                console.log(button_dataset['price'])
+            }
+        })
+    })
+    return tfoot_node
+}
+function makeTfoot() {
+    return null
+}
+
+
+function makeTable() {
+    const table_node = document.createElement('table')
+    const thead_node = makeThead()
+    const tfoot_node = getPrice()
+    const tbody_node = getValuesContentOfHistoryButtons()
+
+    table_node.appendChild(thead_node)
+    table_node.appendChild(tbody_node)
+    table_node.appendChild(tfoot_node)
+    return table_node
+}
+function createTableInDocument() {
+    const table_node = makeTable()
+    const info = document.getElementById('info')
+    info.appendChild(table_node)
+}
 
 function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, alternative_next_menu = undefined) {
     const revision = () => {
-        console.log("REVISANDO------")
+        // console.log("REVISANDO------")
         const buttonNext = () => {
             button_next.classList.add('active')
             button_next.addEventListener('click', () => {
@@ -59,67 +212,7 @@ function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, a
                 }
             })
         }
-        const translateKeysToPortuguese = (entry) => {
-            const traslator = (word_english) => {
-                switch (word_english) {
-                    case "dough":
-                        return "massa"
-                    case "fill":
-                        return "recheio"
-                    case "fruit":
-                        return "fruta"
-                    case "size":
-                        return "tamanho"
-                    case "decoration":
-                        return "Decoração"
-                    case "revision":
-                        return "Revisão"
-                }
-            }
-            if (typeof entry == 'object') {
-                return entry.map((el) => translator(el))
-            }
-            else {
-                translator(entry)
-            }
-        }
-        const getData = () => {
-            const keys = Object.keys(history_of_buttons)
-            const table_node = document.createElement('table')
-            const tbody_node = document.createElement("tbody")
-            const thead_node = document.getElementById('thead')
-            const tfoot_node = document.createElement('tfoot')
-            let td_node = document.createElement('td')
-            let tr_node = document.createElement('tr')
-            let text_node = document.createTextNode('')
-            let tbody_temp = []
-            const getKeys = () => {
-                keys.map((key) => getValuesOfHistoryButtons(key))
-            }
-            const getValuesOfHistoryButtons = (key) => {
-                history_of_buttons[key].map((el) => {
-                    td_node = document.createElement('td')
-                    text_node = document.createTextNode(el.dataset['content'])
-                    td_node.appendChild(text_node)
-                    tr_node.appendChild(td_node)
-                })
-                // console.log(tbody_temp)
-                tbody_node.appendChild(tr_node)
-                tr_node = document.createElement('tr')
-            }
-            console.log('------------tbody-----------')
-            table_node.appendChild(tbody_node)
-            getKeys()
-            return table_node
-        }
-        const createTableInDocument = () => {
-            const table_node = getData()
-            console.log("Create Table in document---------")
-            console.log('table -> ' + table_node)
-            const info = document.getElementById('info')
-            info.removeChild(table_node)
-            info.appendChild(table_node)
-        }
+
         createTableInDocument()
         buttonNext()
     }
@@ -180,7 +273,7 @@ function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, a
                         button_next.classList.remove('active')
                     }
                     function addSpeaker() {
-                        if (menu_keys_global[index_name_step + 1] == 'revision') { button_next.addEventListener('click', revision); console.log(button_next); console.log(revision) }
+                        if (menu_keys_global[index_name_step + 1] == 'revision') { button_next.addEventListener('click', revision) }
 
                         button_next.addEventListener('click', () => {
                             this.contains_fruitable = false
