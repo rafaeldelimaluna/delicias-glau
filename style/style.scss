@@ -93,7 +93,16 @@ h1 img {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 img:hover {
     background-color: var(--bg-light-0);
     // box-shadow: 0em 0em 0.4em rgba(255, 255, 255, 0);
+}
+
+.text-white {
+    color: white;
+    text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
 }

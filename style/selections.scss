@@ -25,8 +25,8 @@ h2 {
     width: 100%;
     min-height: 100vh;
     background-color: #FBEDDC;
-    position: absolute;
-    left: 100%;
+    // position: absolute;
+    // left: 100%;
     transition: .5s;
 
     &.active {
@@ -81,7 +81,8 @@ h2 {
             }
         }
 
-        .box-options {
+        .box-options,
+        .box-final-code {
 
             .button-option {
                 width: 100%;
@@ -92,7 +93,8 @@ h2 {
     }
 }
 
-.box-options {
+.box-options,
+.box-final-code {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -115,7 +117,8 @@ h2 {
         width: 100%;
     }
 
-    .box-options {
+    .box-options,
+    .box-final-code {
         height: 80vh;
         justify-content: center;
     }
@@ -250,6 +253,16 @@ h2 {
     }
 }
 
+.join-codes {}
+
+.box-final-code {
+    justify-content: center;
+}
+
+#text-final {
+    margin: 1.5em;
+    width: 80%;
+}
 
 @media (max-width: 768px) {
     .button-option {

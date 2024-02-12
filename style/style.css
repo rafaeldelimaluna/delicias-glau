@@ -92,6 +92,15 @@ h1 img {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 img:hover {
   background-color: var(--bg-light-0);
+}
+
+.text-white {
+  color: white;
+  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=style.css.map */

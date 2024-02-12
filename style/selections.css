@@ -22,8 +22,6 @@ h2 {
   width: 100%;
   min-height: 100vh;
   background-color: #FBEDDC;
-  position: absolute;
-  left: 100%;
   transition: 0.5s;
 }
 .menu-selection.active {
@@ -66,11 +64,13 @@ h2 {
   height: 1em;
   padding: 1em 0 1em 0;
 }
-.menu-selection.two-columns .box-options .button-option {
+.menu-selection.two-columns .box-options .button-option,
+.menu-selection.two-columns .box-final-code .button-option {
   width: 100%;
 }
 
-.box-options {
+.box-options,
+.box-final-code {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -91,7 +91,8 @@ h2 {
   background-color: var(--bg-secundary-light-0);
   width: 100%;
 }
-.menu-question .box-options {
+.menu-question .box-options,
+.menu-question .box-final-code {
   height: 80vh;
   justify-content: center;
 }
@@ -189,6 +190,15 @@ h2 {
   box-shadow: 0em 0em var(--bg-secundary-light-70);
   background-color: var(--bg-secundary-light-10);
   transform: translate(0, 0.1em) !important;
+}
+
+.box-final-code {
+  justify-content: center;
+}
+
+#text-final {
+  margin: 1.5em;
+  width: 80%;
 }
 
 @media (max-width: 768px) {

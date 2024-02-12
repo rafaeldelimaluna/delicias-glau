@@ -10,6 +10,29 @@
     <link rel="stylesheet" href="style/table.css">
     <script defer src="js/script.js"></script>
     <title>Galeria de Bolos</title>
+    <style>
+        .box-final-code {
+            height: 80vh;
+        }
+
+        #final-code {
+            text-wrap: nowrap;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border: 0;
+        }
+
+        .join-codes {
+            background-color: var(--bg-secundary-light-0);
+            border-radius: 1em;
+            font-size: 2em;
+        }
+
+        #copy {
+            padding: 1em;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +63,7 @@
         <div class="ultra-box">
             <div class="column-box">
                 <h2 class="subitem">Tradicionais</h2>
-                <div class="box-options">
+                <div class="box-options" id="normal">
                     <button class="button-option button-fill" data-content="Beijinho" data-code="0">Beijinho</button>
                     <button class="button-option button-fill fruitable" data-content="Doce de leite" data-code="1">Doce
                         de
@@ -62,12 +85,13 @@
             <div class="column-box">
                 <h2 class="subitem">Especiais</h2>
                 <div class="box-options" id="special">
-                    <button class="button-option button-fill" data-content="Nozes" data-price="20"
-                        data-code="10">Nozes</button>
+                    <button class="button-option button-fill" data-content="Nozes" data-price="20" data-code="10">Nozes
+                        <img src="icons/nut.svg" alt=""></button>
                     <button class="button-option button-fill" data-content="Pistache" data-price="20"
-                        data-code="11">Pistache</button>
+                        data-code="11">Pistache <img src="icons/pistachios.png" alt=""
+                            style="transform: rotate(-25deg);"></button>
                     <button class="button-option button-fill" data-content="Damasco" data-price="20"
-                        data-code="12">Damasco</button>
+                        data-code="12">Damasco <img src="icons/damasco.png" alt=""></button>
                 </div>
             </div>
         </div>
@@ -139,7 +163,15 @@
     <div class="menu-selection">
         <h1>Confirmado</h1>
         <div class="box-final-code">
-            <div id="final-code"></div>
+            <div class="join-codes">
+                <div id="copy" class="text-white">Clique para copiar o Código</div>
+                <input type="text" id="final-code" value="" readonly>
+            </div>
+            <div id="text-final">
+                <p>Este é o código do seu bolo, se quiser dar mais uma olhada nos bolos que fiz, poder ver aqui <a
+                        href="">OOOOOO</a></p>
+                <p>Para efetuar a compra, mande para mim este código, até logo!😀</p>
+            </div>
         </div>
     </div>
 </body>

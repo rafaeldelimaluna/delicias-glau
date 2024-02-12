@@ -15,20 +15,13 @@ th {
 thead {
     font-size: 1.8em;
     font-weight: bold;
-}
-
-thead th {
     background-color: var(--bg-ternary-light-40);
 }
 
-
-tbody tr {
+tbody tr,
+tfoot tr:last-child {
     border-top: 1px solid black;
 }
-
-/* tbody tr:first-child {
-    display: none;
-} */
 
 tbody th {
     border-right: 1px solid black;
@@ -38,4 +31,21 @@ td,
 th {
     padding: 0.2em;
     font-family: cursive;
+}
+
+
+
+tfoot {
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--bg-ternary-light-40);
+}
+
+tfoot th {
+    border-right: 1px solid black;
+    border-radius: 0 0 0 1em;
+}
+
+tfoot td {
+    border-radius: 0 0 1em 0em;
 }

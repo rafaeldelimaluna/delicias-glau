@@ -45,9 +45,11 @@ const node = {
 }
 const menu = declare_global_variabes(true)
 const menu_keys_global = declare_global_variabes(false, true)
+const final_code = document.getElementById('final-code')
+const copy = document.getElementById('copy')
 // const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
 const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
-
+var i = 0
 var TBODY = []
 
 const btn_test = document.getElementById("click-test")
@@ -94,11 +96,9 @@ function getKeys_of_history_of_buttons() {
     return Object.keys(history_of_buttons)
 }
 
-
-
-function makeThead() {
+function makeThead(text_header) {
     const thead_node = document.createElement('thead')
-    const thead_text_node = document.createTextNode('Resumo')
+    const thead_text_node = document.createTextNode(text_header)
     const th_node = document.createElement('th')
     th_node.appendChild(thead_text_node)
     th_node.setAttribute("colspan", 5)
@@ -118,8 +118,6 @@ function getValuesContentOfHistoryButtons() {
     keys.map((key) => getValues(key))
     function getValues(key) {
         history_of_buttons[key].map((el, i) => {
-            if (i == 0) {
-            }
             td_node = document.createElement('td')
             text_node = document.createTextNode(el.dataset['content'])
 
@@ -128,6 +126,7 @@ function getValuesContentOfHistoryButtons() {
                 tr_node.appendChild(td_node)
             }
             else {
+                if (key == 'decoration') { console.log(el.dataset['content']) }
                 tbody_node.appendChild(tr_node)
                 tr_node = document.createElement('tr')
                 key_translated = translateKeyToPortugueseOrEnglish(key)
@@ -141,81 +140,132 @@ function getValuesContentOfHistoryButtons() {
             last_key = key
         })
     }
+    tbody_node.appendChild(tr_node)
     return tbody_node
 }
-function getPrice() {
-    const keys = getKeys_of_history_of_buttons()
+
+function makeTfootTotalPrice(total_price) {
     const tfoot_node = document.createElement('tfoot')
+    const th_node = document.createElement('th')
+    const td_node = document.createElement('td')
+    td_node.setAttribute('colspan', 2)
+    th_node.appendChild(document.createTextNode('Preço Total'))
+    td_node.appendChild(document.createTextNode(`R$ ${total_price}`))
+    tfoot_node.appendChild(th_node)
+    tfoot_node.appendChild(td_node)
+    return tfoot_node
+}
+function makeTableMakerPrice() {
+    const keys = getKeys_of_history_of_buttons()
+    const table_node = document.createElement("table")
+    const tbody_node = document.createElement('tbody')
     let tr_node = document.createElement('tr')
-    let td0_node = node.td
-    let td1_node = node.td
-    let td2_node = node.td
-    let td0_text_node = node.text_smok
-    let td1_text_node = node.text_smok
-    let td2_text_node = node.text_smok
+    let td_0_node = document.createElement('td')
+    let td_1_node = document.createElement('td')
+    let td_2_node = document.createElement('td')
+    let th_node = node.th
+    let text_node_0 = node.text_smok
+    let text_node_1 = node.text_smok
+    let text_node_2 = node.text_smok
+    let total_price = 0
+    table_node.appendChild(makeThead("Montagem do Preço"))
+    let key_translated = ''
     let button_dataset = Object
     keys.map((key) => {
         history_of_buttons[key].forEach((el) => {
             button_dataset = el.dataset
             if (button_dataset['price'] != undefined) {
-                td_node = document.createElement('td')
+                td_0_node = document.createElement('td')
+                td_1_node = document.createElement('td')
+                td_2_node = document.createElement('td')
+                th_node = document.createElement('th')
                 if (el.parentElement.id == 'special') {
-                    td0_text_node = document.createTextNode(`Recheio Especial `)
-                    node.text_node(`${button_dataset.content}`)
-                    node.text_node(`R$ ${button_dataset.price}`)
-                    td0_node.appendChild()
+                    tr_node = document.createElement('tr')
+                    th_node.appendChild(document.createTextNode(`Recheio Especial `))
+                    td_1_node.appendChild(document.createTextNode(`${button_dataset.content}`))
+                    td_2_node.appendChild(document.createTextNode(`R$ ${button_dataset.price}`))
+                    tr_node.appendChild(th_node)
+                    tr_node.appendChild(td_1_node)
+                    tr_node.appendChild(td_2_node)
+
+                    tbody_node.appendChild(tr_node)
                 }
                 else {
-                    td0_text_node = document.createTextNode(`${button_dataset.content} + R$ ${button_dataset.price}`)
+                    key_translated = translateKeyToPortugueseOrEnglish(key)
+                    th_node.appendChild(document.createTextNode(key_translated))
+                    td_0_node.appendChild(document.createTextNode(button_dataset.content))
+                    td_1_node.appendChild(document.createTextNode(`R$ ${button_dataset.price}`))
+                    tr_node.appendChild(th_node)
+                    tr_node.appendChild(td_0_node)
+                    tr_node.appendChild(td_1_node)
                 }
-                td_node.appendChild(td0_text_node)
-                tr_node.appendChild(td_node)
-                tfoot_node.appendChild(tr_node)
-                td_node = node.td
-                tr_node = node.tr
-                console.log(button_dataset['price'])
+                tbody_node.appendChild(tr_node)
+                text_node_0 = node.text_smok
+                td_0_node = node.td
+                tr_node = document.createElement('tr')
+                total_price += parseInt(button_dataset['price'])
             }
         })
     })
-    return tfoot_node
-}
-function makeTfoot() {
-    return null
+    table_node.appendChild(tbody_node)
+    table_node.appendChild(makeTfootTotalPrice(total_price))
+    return table_node
 }
 
 
-function makeTable() {
+function makeTableContent() {
     const table_node = document.createElement('table')
-    const thead_node = makeThead()
-    const tfoot_node = getPrice()
+    const thead_node = makeThead("Resumo")
     const tbody_node = getValuesContentOfHistoryButtons()
 
     table_node.appendChild(thead_node)
     table_node.appendChild(tbody_node)
-    table_node.appendChild(tfoot_node)
     return table_node
 }
-function createTableInDocument() {
-    const table_node = makeTable()
-    const info = document.getElementById('info')
-    info.appendChild(table_node)
+function createTablesInDocument() {
+    i += 1
+    if (i > 1) {
+        const table_content_node = makeTableContent()
+        const table_maker_price = makeTableMakerPrice()
+        const info = document.getElementById('info')
+        const table_existents = document.querySelectorAll('#info table')
+        table_existents.forEach((table) => table != null ? info.removeChild(table) : null)
+        info.appendChild(table_content_node)
+        info.appendChild(table_maker_price)
+
+    }
+}
+function revision() {
+    let revision_next = menu.revision.next
+    revision_next.classList.add('active')
+    revision_next.addEventListener('click', () => {
+        menu.finally.content.classList.add('active')
+    })
+    createTablesInDocument()
 }
 
-function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, alternative_next_menu = undefined) {
-    const revision = () => {
-        // console.log("REVISANDO------")
-        const buttonNext = () => {
-            button_next.classList.add('active')
-            button_next.addEventListener('click', () => {
-                if (button_next.classList.contains('active')) {
-                    menu.finally.content.classList.add('active')
-                }
-            })
-        }
 
-        createTableInDocument()
-        buttonNext()
-    }
+
+function generateCode() {
+    const keys = getKeys_of_history_of_buttons()
+    let code = ''
+    keys.forEach(key => {
+        history_of_buttons[key].forEach(el => {
+            code += el.dataset['code']
+        })
+    });
+    return code
+}
+
+function finallyMenu() {
+    const code = generateCode()
+    final_code.setAttribute('value', code)
+}
+
+
+
+function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, alternative_next_menu = undefined) {
+
     function verifyIfExistsKeyButtons() {
         if (menu_keys_step.includes('buttons')) {
             return menu[name_step].buttons
@@ -323,6 +373,9 @@ function selectLastToNext(name_step, numberMaxSelections, numberMinSelections, a
     }
 }
 
+menu.revision.next.addEventListener('click', () => {
+    finallyMenu()
+})
 
 
 
@@ -330,5 +383,5 @@ selectLastToNext("dough", 1, 1,)//dough
 selectLastToNext("fill", 2, 1, menu.size.content)//fill
 selectLastToNext("fruit", 1, 1,)//fruit
 selectLastToNext("size", 1, 1,)//size
-selectLastToNext("decoration", 1, 1,)//decoration
+selectLastToNext("decoration", 1, 1)//decoration
 selectLastToNext("revision", 0, 0)//revision
