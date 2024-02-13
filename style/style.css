@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Kalam:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Kalam;
 }
 
 :root {
@@ -68,7 +70,7 @@
 }
 
 html {
-  font-size: 2vmax;
+  font-size: 2.1vmax;
   overflow-x: hidden;
 }
 
@@ -81,10 +83,10 @@ main {
 }
 
 h1 img {
-  height: 10%;
+  width: 10%;
   position: absolute;
   left: 0;
-  transform: translate(25%, -25%);
+  transform: translate(0, -25%);
   background-color: var(--bg-light-20);
   box-shadow: 0em 0em 0.4em rgba(255, 255, 255, 0.733);
   border-radius: 50%;
@@ -103,4 +105,19 @@ h1 img:hover {
 .text-white {
   color: white;
   text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
+}
+
+.attention {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 1em;
+  font-family: "Kalam" !important;
+  box-sizing: border-box;
+  border: 1em solid transparent;
+}
+.attention h3, .attention p {
+  background-color: var(--bg-light-80);
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

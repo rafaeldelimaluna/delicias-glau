@@ -12,7 +12,9 @@
 h1,
 h2 {
   background-color: var(--bg-light-0);
-  padding: 1em 0 1em 0;
+  padding: 1em 0 0.8em 0;
+  transform: translate(0, -50%);
+  align-items: center;
   text-align: center;
   color: white;
   text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
@@ -30,7 +32,12 @@ h2 {
 .menu-selection h2.subitem {
   width: 50%;
   border-radius: 1em;
+  font-size: 1em;
   background-color: var(--bg-ternary-light-20);
+}
+.menu-selection .subitem b {
+  font-weight: normal;
+  display: block;
 }
 .menu-selection h1.max-2::after {
   content: " - Escolha 2";
@@ -102,9 +109,11 @@ h2 {
 
 .button-option {
   width: 40%;
-  padding: 1rem;
+  padding: 1em;
   margin-top: 1.5em;
   font-size: 1em;
+  font-weight: 500;
+  text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.514);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,9 +171,9 @@ h2 {
 .button-next {
   width: 90%;
   margin: auto;
-  padding: 1rem;
+  padding: 1em;
   margin-top: 1.5em;
-  font-size: 1em;
+  font-size: 1.2em;
   color: white;
   display: flex;
   align-items: center;

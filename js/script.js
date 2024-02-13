@@ -46,11 +46,10 @@ const node = {
 const menu = declare_global_variabes(true)
 const menu_keys_global = declare_global_variabes(false, true)
 const final_code = document.getElementById('final-code')
-const copy = document.getElementById('copy')
-// const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
+const a_to_send_message = document.getElementById('send-message')
 const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoration: [], revision: [] }
+const result_portuguese = { massa: [], recheio: [], fruta: [], tamanho: [], "decoração": [] }
 var i = 0
-var TBODY = []
 
 const btn_test = document.getElementById("click-test")
 btn_test.addEventListener('click', () => {
@@ -242,6 +241,9 @@ function revision() {
         menu.finally.content.classList.add('active')
     })
     createTablesInDocument()
+    history_of_buttons_toText()
+    setUniversalLinkWaIn_send_message()
+
 }
 
 
@@ -257,9 +259,77 @@ function generateCode() {
     return code
 }
 
+function history_of_buttons_toText() {
+    const keys = getKeys_of_history_of_buttons()
+    let key_translated = ''
+    keys.forEach((key) => {
+        history_of_buttons[key].forEach(() => {
+            key_translated = translateKeyToPortugueseOrEnglish(key)
+            if (result_portuguese[key_translated] != undefined) {
+                result_portuguese[key_translated] = []
+            }
+        })
+    })
+    keys.forEach((key) => {
+        history_of_buttons[key].forEach((item) => {
+            key_translated = translateKeyToPortugueseOrEnglish(key)
+            if (result_portuguese[key_translated] != undefined) {
+                result_portuguese[key_translated].push(item.dataset['content'])
+            }
+        })
+    })
+    return result_portuguese
+}
+
+function makeMessage() {
+    const keys_pt = Object.keys(result_portuguese)
+    let message = 'Olá Glaucia!!!!\nGostaria de encomendar um bolo, deste jeitinho:'
+    keys_pt.forEach((key) => {
+        if (result_portuguese[key].length != 0) {
+            message += `\n*${key.toUpperCase()}*: `
+            result_portuguese[key].forEach((item, i) => {
+                i == 0 ? message += item : message += ` | ${item}`
+            })
+        }
+    })
+    const message_encoded = encodeURI(message)
+    return message_encoded
+}
+function passToWhatsAppUniversalLink(message_encoded, number_people) {
+    const universalLink = "https://wa.me/"
+    const text_initializer = "?text="
+    const complete_link = universalLink + number_people + text_initializer + message_encoded
+    return complete_link
+}
+
+function setUniversalLinkWaIn_send_message() {
+    const send_message = document.getElementById('send-message')
+    const message_encoded = makeMessage()
+    const link = passToWhatsAppUniversalLink(message_encoded, "14997100777")
+    send_message.setAttribute('href', link)
+}
+
+function getTextTables() {
+    const tables = document.querySelectorAll('table')
+    // const trs = []
+    // const td_th = []
+    // tables.forEach((table) => getTrs(table))
+    // trs.forEach((tr) => getThsTds(tr))
+    // function getTrs(table) {
+    // trs.push(table.querySelectorAll('tr'))
+    // }
+    // function getThsTds(tr) {
+    // console.log("--------getThsTds--------")
+    // console.log(tr)
+    // console.log(tr.childNodes)
+    // td_th.push(tr.childNodes)
+    // }
+    // trs[1].childNodes[0]
+    // return td_th
+}
+
 function finallyMenu() {
-    const code = generateCode()
-    final_code.setAttribute('value', code)
+
 }
 
 

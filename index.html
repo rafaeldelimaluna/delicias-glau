@@ -15,22 +15,15 @@
             height: 80vh;
         }
 
-        #final-code {
-            text-wrap: nowrap;
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            border: 0;
-        }
-
-        .join-codes {
+        #send-message {
             background-color: var(--bg-secundary-light-0);
-            border-radius: 1em;
             font-size: 2em;
+            border-radius: 1em;
+            padding: 1em;
         }
 
-        #copy {
-            padding: 1em;
+        .attention {
+            border-image: url('icons/circle.svg') 40 round;
         }
     </style>
 </head>
@@ -83,7 +76,7 @@
                 </div>
             </div>
             <div class="column-box">
-                <h2 class="subitem">Especiais</h2>
+                <h2 class="subitem">Especiais (+R$20)</h2>
                 <div class="box-options" id="special">
                     <button class="button-option button-fill" data-content="Nozes" data-price="20" data-code="10">Nozes
                         <img src="icons/nut.svg" alt=""></button>
@@ -152,6 +145,11 @@
                 Valsa</button>
             <button class="button-option button-decoration" data-content="Nenhuma" data-code="3">Hoje não 😢</button>
         </div>
+        <div class="attention">
+            <h3>Obs:</h3>
+            <p>O custo da decoração será determinado no momento da compra, será cobrado o gasto com
+                insumos</p>
+        </div>
         <button class="button-next">Revisar</button>
 
     </div>
@@ -161,16 +159,12 @@
         <div class="button-next">Confirmar</div>
     </div>
     <div class="menu-selection">
-        <h1>Confirmado</h1>
+        <h1>Quase acabando</h1>
         <div class="box-final-code">
-            <div class="join-codes">
-                <div id="copy" class="text-white">Clique para copiar o Código</div>
-                <input type="text" id="final-code" value="" readonly>
-            </div>
-            <div id="text-final">
-                <p>Este é o código do seu bolo, se quiser dar mais uma olhada nos bolos que fiz, poder ver aqui <a
-                        href="">OOOOOO</a></p>
-                <p>Para efetuar a compra, mande para mim este código, até logo!😀</p>
+            <a id="send-message" class="text-white" href="#">Clique aqui para mandar o pedido!</a>
+            <div id="text-final " class="attention">
+                <p>Se quiser conferir mais bolos que fiz, poder ver aqui <a href="#">link</a>
+                </p>
             </div>
         </div>
     </div>
