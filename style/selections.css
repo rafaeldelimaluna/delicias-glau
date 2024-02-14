@@ -12,7 +12,6 @@
 h1,
 h2 {
   background-color: var(--bg-light-0);
-  padding: 1em 0 1em 0;
   text-align: center;
   color: white;
   text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
@@ -20,9 +19,17 @@ h2 {
 
 .menu-selection {
   width: 100%;
-  min-height: 100vh;
+  min-height: 120vh;
   background-color: #FBEDDC;
+  position: absolute;
+  top: 0;
+  left: 100%;
   transition: 0.5s;
+}
+.menu-selection h1,
+.menu-selection h2 {
+  padding: 1em 0 0.8em 0;
+  align-items: center;
 }
 .menu-selection.active {
   left: 0;
@@ -30,7 +37,12 @@ h2 {
 .menu-selection h2.subitem {
   width: 50%;
   border-radius: 1em;
-  background-color: var(--bg-ternary-light-0);
+  font-size: 1em;
+  background-color: var(--bg-ternary-light-20);
+}
+.menu-selection .subitem b {
+  font-weight: normal;
+  display: block;
 }
 .menu-selection h1.max-2::after {
   content: " - Escolha 2";
@@ -64,11 +76,9 @@ h2 {
   height: 1em;
   padding: 1em 0 1em 0;
 }
-.menu-selection.two-columns .box-options .button-option {
-  width: 100%;
-}
 
-.box-options {
+.box-options,
+.box-final-code {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -89,7 +99,8 @@ h2 {
   background-color: var(--bg-secundary-light-0);
   width: 100%;
 }
-.menu-question .box-options {
+.menu-question .box-options,
+.menu-question .box-final-code {
   height: 80vh;
   justify-content: center;
 }
@@ -99,9 +110,11 @@ h2 {
 
 .button-option {
   width: 40%;
-  padding: 1rem;
+  padding: 1em;
   margin-top: 1.5em;
   font-size: 1em;
+  font-weight: 500;
+  text-shadow: 0em 0em 0.1em rgba(0, 0, 0, 0.514);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,6 +122,7 @@ h2 {
   border-radius: 2em;
   box-sizing: border-box;
   border: 1px solid transparent;
+  cursor: pointer;
   transition: 0.25s;
 }
 .menu-selection .button-option {
@@ -120,12 +134,13 @@ h2 {
   background-color: var(--bg-light-70);
   transform: translate(0, 0.1em) !important;
 }
-.menu-selection .button-option:active {
+.menu-selection .button-option:active, .menu-selection .button-option.active {
   background-color: var(--bg-light-60);
   transform: translate(0, 0.2em) !important;
 }
 .menu-selection .button-option.active {
   background-color: var(--bg-light-60);
+  box-shadow: 0em 0em var(--bg-light-20);
 }
 .menu-question .button-option {
   background-color: var(--bg-secundary-light-20);
@@ -158,9 +173,9 @@ h2 {
 .button-next {
   width: 90%;
   margin: auto;
-  padding: 1rem;
+  padding: 1em;
   margin-top: 1.5em;
-  font-size: 1em;
+  font-size: 1.2em;
   color: white;
   display: flex;
   align-items: center;
@@ -186,6 +201,15 @@ h2 {
   box-shadow: 0em 0em var(--bg-secundary-light-70);
   background-color: var(--bg-secundary-light-10);
   transform: translate(0, 0.1em) !important;
+}
+
+.box-final-code {
+  justify-content: center;
+}
+
+#text-final {
+  margin: 1.5em;
+  width: 80%;
 }
 
 @media (max-width: 768px) {

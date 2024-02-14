@@ -1,0 +1,240 @@
+{
+    "cake-1": {
+        "tipo": "torta",
+        "massa": "",
+        "recheio": [
+            "cream cheese",
+            "geleia de frutas vermelhas"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Torta red velvet com recheio de cream cheese e geleia de frutas vermelhas"
+    },
+    "cake-2": {
+        "tipo": "bolo",
+        "massa": "chifon de baunilha",
+        "recheio": "abacaxi com cocadinha cremosa",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon de baunilha, com recheio de abacaxi com cocadinha cremosa"
+    },
+    "cake-3": {
+        "tipo": "bolo",
+        "massa": "Massa chifon de baunilha",
+        "recheio": [
+            "recheio de abacaxi",
+            "brigadeiro de ninho trufado"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon de baunilha com recheio de abacaxi e brigadeiro de ninho trufado"
+    },
+    "cake-4": {
+        "tipo": "bolo na travessa",
+        "massa": "",
+        "recheio": "",
+        "fruta": "morangos",
+        "decoracao": "",
+        "texto": "Bolo na travessa de brigadeiro de ninho trufado com morangos"
+    },
+    "cake-5": {
+        "tipo": "bolo",
+        "massa": "baunilha",
+        "recheio": [
+            "brigadeiro de ninho trufado",
+            "geleia de frutas vermelhas"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa de baunilha, brigadeiro de ninho trufado e geleia de frutas vermelhas"
+    },
+    "cake-6": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "ninho",
+        "fruta": "morango",
+        "decoracao": "",
+        "texto": "Ninho com morangos"
+    },
+    "cake-7": {
+        "tipo": "bolo",
+        "massa": "chifon de nozes",
+        "recheio": [
+            "brigadeiro de chocolate branco",
+            "nozes"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon de nozes com recheio de brigadeiro de chocolate branco e nozes"
+    },
+    "cake-8": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Bolo prestígio"
+    },
+    "cake-9": {
+        "tipo": "bolo",
+        "massa": "chifon chocolate",
+        "recheio": "brigadeiro de chocolate belga",
+        "fruta": "morango",
+        "decoracao": "kitkat",
+        "texto": "Bolo massa chifon chocolate, com brigadeiro de chocolate belga com morangos frescos"
+    },
+    "cake-10": {
+        "tipo": "bolo",
+        "massa": "baunilha",
+        "recheio": [
+            "chocolate branco e preto",
+            "geleia de frutas vermelhas"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa de baunilha com recheio de chocolate branco e preto com geleia de frutas vermelhas"
+    },
+    "cake-11": {
+        "tipo": "bolo",
+        "massa": "chifon de nozes",
+        "recheio": " brigadeiro de nozes",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon de nozes, com recheio de brigadeiro de nozes"
+    },
+    "cake-12": {
+        "tipo": "bolo",
+        "massa": "chifon chocolate",
+        "recheio": "dois amores",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon de chocolate, com recheio dois amores"
+    },
+    "cake-13": {
+        "tipo": "bolo",
+        "massa": "baunilha",
+        "recheio": [
+            "frutas vermelhas",
+            "brigadeiro branco"
+        ],
+        "fruta": [
+            "morango",
+            "blueberry",
+            "framboesa"
+        ],
+        "decoracao": "kitkat",
+        "texto": "Massa baunilha com recheio de frutas vermelhas e brigadeiro branco"
+    },
+    "cake-14": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "brigadeiro",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Bolo de brigadeiro"
+    },
+    "cake-15": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Prestígio"
+    },
+    "cake-16": {
+        "tipo": "bolo",
+        "massa": "nozes",
+        "recheio": [
+            "recheio de nozes",
+            "geleia de damasco"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa de nozes com recheio de nozes e geleia de damasco"
+    },
+    "cake-17": {
+        "tipo": "bolo",
+        "massa": "chocolate",
+        "recheio": [
+            "brigadeiro de café",
+            "chantilly "
+        ],
+        "fruta": "morango",
+        "decoracao": [
+            "chantilly",
+            "morango"
+        ],
+        "texto": "Massa de chocolate, com recheio de brigadeiro de café e chantilly com morangos"
+    },
+    "cake-18": {
+        "tipo": "bolo",
+        "massa": "baunilha",
+        "recheio": "brigadeiro de ninho ",
+        "fruta": "uvas verdes",
+        "decoracao": [
+            "chantily",
+            "uva verde"
+        ],
+        "texto": "Massa de baunilha e recheio de brigadeiro de ninho com umas verdes"
+    },
+    "cake-19": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "coco com amêndoas",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Bolo rafaello, recheio de coco com amêndoas"
+    },
+    "cake-20": {
+        "tipo": "bolo",
+        "massa": "chocolate",
+        "recheio": [
+            "brigadeiro de café",
+            "chantilly e cerejas"
+        ],
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa de chocolate, brigadeiro de café com chantilly e cerejas"
+    },
+    "cake-21": {
+        "tipo": "bolo",
+        "massa": "chifon",
+        "recheio": "beijinho",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Massa chifon com recheio de beijinho"
+    },
+    "cake-22": {
+        "tipo": "",
+        "massa": "",
+        "recheio": [
+            "Geleia de frutas vermelhas",
+            "brigadeiro de ninho"
+        ],
+        "fruta": "",
+        "decoracao": [
+            "geleia de frutas vermelhas",
+            "morango"
+        ],
+        "texto": "Geleia de frutas vermelhas com brigadeiro de ninho"
+    },
+    "cake-23": {
+        "tipo": "merengue",
+        "massa": "",
+        "recheio": "",
+        "fruta": "",
+        "decoracao": "",
+        "texto": "Merengue de morango"
+    },
+    "cake-24": {
+        "tipo": "bolo",
+        "massa": "",
+        "recheio": "doce de leite",
+        "fruta": "ameixa",
+        "decoracao": [
+            "ameixa",
+            "chantilly"
+        ],
+        "texto": "Bolo com recheio de Ameixas com doce de leite"
+    }
+}

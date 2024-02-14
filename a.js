@@ -1,10 +1,8 @@
-// let selections = { dough: [12312312, 13, 1, 231, 2312], fills: [36, 3463, 4634, 634], fruits: [2, 32, 13, 123, 1], size: [1, 1, 2, 2], decoration: [0, 5, 78] }
+let text = "https://wa.me/14997100777?text=Ol%C3%A1%20Glaucia!!!%20Peguei%20como%20referencia%20o%20bolo%231%0Atipo:%20torta%0Arecheio:%20cream%20cheese%20%7C%20geleia%20de%20frutas%20vermelhas%0A"
 
-// Object.keys(selections).forEach((key) => selections[key].forEach((el) => console.log(el)))
-
-
-let a = ''
-if (typeof (a) == "string") {
-    console.log(typeof (a))
-
-}
+// %20#
+// #23
+text.replace('%20#', "%23")
+let text_encoded = encodeURI(text)
+let text_decoded = decodeURI(text)
+console.log(text_decoded)

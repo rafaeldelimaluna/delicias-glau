@@ -6,64 +6,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/cards.css">
-    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="style/selections.css">
+    <link rel="stylesheet" href="style/table.css">
+    <script defer src="js/script.js"></script>
     <title>Galeria de Bolos</title>
+    <style>
+        .box-final-code {
+            height: 80vh;
+        }
+
+        #send-message {
+            background-color: var(--bg-secundary-light-0);
+            font-size: 2em;
+            border-radius: 1em;
+            padding: 1em;
+        }
+
+        .attention {
+            border-image: url('icons/circle.svg') 40 round;
+        }
+
+
+        .button-main#galery-cakes .image {
+            background-image: url('/img/cake-10.jpeg');
+        }
+
+        .button-main#mount-cake .image {
+            background-image: url("img/cake-ingredients.jpg");
+        }
+    </style>
 </head>
 
 <body>
     <header>
-
+        <img src="img/logo-glau.jpg" alt="">
+        <h1>Delícias da Glau</h1>
     </header>
     <main>
-        <div class="card-body card">
-            <!-- <a href="galery.html" class="card-link"></a> -->
-            <div class="card-content">Galeria de Bolos</div>
-        </div>
-        <div class="card-body card" id="mount-cake">
-            <div class="card-content">Montar Bolo</div>
-        </div>
-        <div class="menu-selection" id="dough-selection">
-            <h1>Massa do bolo</h1>
-            <button class="button-option button-dough" id="dough-opt-1">Chocolate</button>
-            <button class="button-option button-dough" id="dough-opt-2">Baunilha</button>
-            <button class="button-option button-dough" id="dough-opt-3">Baunilha c/ raspas de laranja</button>
-            <button class="button-option" id="dough-opt-4">Baunilha c/
-                nozes</button>
-        </div>
-        <div class="menu-selection" id="filling">
-            <h1>Recheio</h1>
-            <button class="button-option button-fill" id="fill-opt-1">Beijinho</button>
-            <button class="button-option button-fill" id="fill-opt-2">Doce de leite</button>
-            <button class="button-option button-fill" id="fill-opt-3">Brigadeiro de ninho c/ frutas
-                vermelhas</button>
-            <button class="button-option button-fill" id="fill-opt-4">Dois amores</button>
-            <button class="button-option button-fill" id="fill-opt-5">Brigadeiro brulê c/ geleia de frutas
-                vermelhas</button>
-            <button class="button-option button-fill" id="fill-opt-6">Brigadeiro com
-                café</button>
-            <button class="button-option button-fill" id="fill-opt-7"></button>
-        </div>
-        <div class="menu-selection">
-            <h2>Frutas do recheio</h2>
-            <button class="button-option button-fruit" id="fruit-opt-1">Abacaxi</button>
-            <button class="button-option button-fruit" id="fruit-opt-2">Ameixa</button>
-            <button class="button-option button-fruit" id="fruit-opt-3">Morango</button>
-            <button class="button-option button-fruit" id="fruit-opt-4">Pêssego</button>
-        </div>
-        <div class="menu-selection">
-            <h1>Tamanhos</h1>
-            <button class="button-option button-size" id="size-opt-1">Pequeno</button>
-            <button class="button-option button-size" id="size-opt-2">Médio</button>
-            <button class="button-option button-size" id="size-opt-3">Grande</button>
-        </div>
-        <div class="menu-selection">
-            <h1>Decorações</h1>
-            <button class="button-option button-decoration" id="decoration-1">Kitkat</button><button
-                class="button-option button-decoration" id="decoration-2">Kinder Bueno</button><button
-                class="button-option button-decoration" id="decoration-3">Sonho de Valsa</button>
+        <div class="box-buttons-main">
+            <div class="button-main" id="galery-cakes">
+                <div class="image"></div>
+                <a href="#" class="text-white">Confira os bolos que fiz</a>
+            </div>
+            <div class="button-main" id="mount-cake">
+                <div class="image"></div>
+                <a href="#" class="text-white">Montar Bolo</a>
+            </div>
         </div>
     </main>
-    <footer>Footer</footer>
+    <div class="menu-selection" id="dough">
+        <h1><img src="icons/back.svg" alt="" class="button-back">Massa do bolo</h1>
+        <div class="box-options">
+            <button class="button-option button-dough" data-content="Chocolate" data-code="0">Chocolate
+                <img src="icons/chocolate-bar.svg" alt=""></button>
+            <button class="button-option button-dough" data-content="Baunilha" data-code="1">Baunilha <img
+                    src="icons/vanilla-flower.svg" alt=""></button>
+            <button class="button-option button-dough" data-content="Baunilha c/ raspas de laranja"
+                data-code="2">Baunilha c/ raspas
+                de laranja <img src="icons/vanilla-flower.svg" alt=""><img src="icons/orange.svg" alt=""></button>
+            <button class="button-option button-dough" data-content="Baunilha c/ nozes" data-code="3">Baunilha c/
+                nozes <img src="icons/vanilla-flower.svg" alt=""><img src="icons/nut.svg" alt=""></button>
+        </div>
+        <button class="button-next">Próximo</button>
+
+    </div>
+    <div class="menu-selection two-columns" id="fill">
+        <h1 class="-max-2"><img src="icons/back.svg" alt="" class="button-back">Escolha até dois recheios</h1>
+        <div class="ultra-box">
+            <div class="column-box">
+                <h2 class="subitem">Tradicionais</h2>
+                <div class="box-options" id="normal">
+                    <button class="button-option button-fill" data-content="Beijinho" data-code="0">Beijinho</button>
+                    <button class="button-option button-fill fruitable" data-content="Doce de leite" data-code="1">Doce
+                        de
+                        leite</button>
+                    <button class="button-option button-fill" data-content="Brigadeiro de ninho c/ frutas vermelhas"
+                        data-code="02">Brigadeiro de ninho c/ frutas
+                        vermelhas</button>
+                    <button class="button-option button-fill" data-content="Dois amores" data-code="03">Dois
+                        amores</button>
+                    <button class="button-option button-fill" data-content="Brigadeiro brulê c/ geleia de frutas"
+                        data-code="04">Brigadeiro brulê c/ geleia de frutas
+                        vermelhas</button>
+                    <button class="button-option button-fill" data-content="Brigadeiro com café"
+                        data-code="05">Brigadeiro
+                        com
+                        café</button>
+                </div>
+            </div>
+            <div class="column-box">
+                <h2 class="subitem">Especiais (+R$20)</h2>
+                <div class="box-options" id="special">
+                    <button class="button-option button-fill" data-content="Nozes" data-price="20" data-code="10">Nozes
+                        <img src="icons/nut.svg" alt=""></button>
+                    <button class="button-option button-fill" data-content="Pistache" data-price="20"
+                        data-code="11">Pistache <img src="icons/pistachios.png" alt=""
+                            style="transform: rotate(-25deg);"></button>
+                    <button class="button-option button-fill" data-content="Damasco" data-price="20"
+                        data-code="12">Damasco <img src="icons/damasco.png" alt=""></button>
+                </div>
+            </div>
+        </div>
+        <button class="button-next">Próximo</button>
+    </div>
+    <div class="menu-selection" id="fruit">
+        <h1><img src="icons/back.svg" alt="" class="button-back"><span id="dinamic-fruit">Fruta {}</span></h1>
+        <div class="box-options">
+            <button class="button-option button-fruit" data-content="Abacaxi" data-code="0">Abacaxi <img
+                    src="icons/abacaxi.svg" alt=""></button>
+            <button class="button-option button-fruit" data-content="Ameixa" data-code="1">Ameixa <img
+                    src="icons/plum.svg" alt=""></button>
+            <button class="button-option button-fruit" data-content="Morango" data-code="2">Morango <img
+                    src="icons/strawberry.svg" alt=""></button>
+            <button class="button-option button-fruit" data-content="Pêssego" data-code="3">Pêssego <img
+                    src="icons/peach.svg" alt="" style="transform: rotate(-45deg);"></button>
+            <button class="button-option button-fruit" data-content="Nenhuma" data-code="4">Nenhuma</button>
+        </div>
+        <button class="button-next">Próximo</button>
+    </div>
+    <div class="menu-selection" id="size">
+        <h1><img src="icons/back.svg" alt="" class="button-back">Tamanho do bolo</h1>
+        <div class="box-options">
+            <button class="button-option button-size text-wrap" data-content="Pequeno" data-price="180" data-code="0">
+                <h3>Pequeno</h3>
+                <ul>
+                    <li>rende 25/30</li>
+                    <li> R$180</li>
+                </ul>
+
+
+            </button>
+            <button class="button-option button-size text-wrap" data-content="Médio" data-price="280" data-code="1">
+                <h3>Médio</h3>
+                <ul>
+                    <li>rende 30/40</li>
+                    <li>R$ 280</li>
+                </ul>
+            </button>
+            <button class="button-option button-size text-wrap" data-content="Grande" data-price="380" data-code="2">
+                <h3>Grande</h3>
+                <ul>
+                    <li>rende 40/50</li>
+                    <li>R$ 380</li>
+                </ul>
+            </button>
+        </div>
+        <button class="button-next">Próximo</button>
+
+    </div>
+    <div class="menu-selection" id="decoration">
+        <h1><img src="icons/back.svg" alt="" class="button-back">Vamos decorar o bolo?</h1>
+        <div class="box-options">
+            <button class="button-option button-decoration" data-content="KitKat" data-code="0">Kitkat</button>
+            <button class="button-option button-decoration" data-content="Kinder Bueno" data-code="1">Kinder
+                Bueno</button>
+            <button class="button-option button-decoration" data-content="Sonho de Valsa" data-code="2">Sonho de
+                Valsa</button>
+            <button class="button-option button-decoration" data-content="Nenhuma" data-code="3">Hoje não 😢</button>
+        </div>
+        <div class="attention">
+            <h3>Obs:</h3>
+            <p>O custo da decoração será determinado no momento da compra, será cobrado o gasto com
+                insumos</p>
+        </div>
+        <button class="button-next">Revisar</button>
+
+    </div>
+    <div class="menu-selection" id="revision">
+        <h1><img src="icons/back.svg" alt="" class="button-back">Revisão</h1>
+        <div id="info"></div>
+        <div class="button-next">Confirmar</div>
+    </div>
+    <div class="menu-selection">
+        <h1>Quase acabando</h1>
+        <div class="box-final-code">
+            <a id="send-message" class="text-white button" href="#">Clique aqui para mandar o pedido!</a>
+            <div id="text-final " class="attention iterable">
+                <a href="#">Se quiser conferir mais bolos que fiz, poder ver aqui </a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
