@@ -8,6 +8,10 @@ table {
     box-shadow: 0.0em 0.0em 0.2em;
 }
 
+table:last-child {
+    text-align: center;
+}
+
 th {
     border-radius: 0.5em 0.5em 0 0;
 }
@@ -33,6 +37,9 @@ th {
     font-family: Kalam;
 }
 
+td:nth-child(3) {
+    border-left: 2px dotted black;
+}
 
 
 tfoot {

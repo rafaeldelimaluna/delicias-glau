@@ -25,18 +25,37 @@
         .attention {
             border-image: url('icons/circle.svg') 40 round;
         }
+
+
+        .button-main#galery-cakes .image {
+            background-image: url('/img/cake-10.jpeg');
+        }
+
+        .button-main#mount-cake .image {
+            background-image: url("img/cake-ingredients.jpg");
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <div id="click-test" style="position: absolute;">Clique em mim</div>
+        <img src="img/logo-glau.jpg" alt="">
+        <h1>Delícias da Glau</h1>
     </header>
-    <main style="position: absolute;width: 10%; left: 10%; top:40%">
-        Escolha seu bolo
+    <main>
+        <div class="box-buttons-main">
+            <div class="button-main" id="galery-cakes">
+                <div class="image"></div>
+                <a href="#" class="text-white">Confira os bolos que fiz</a>
+            </div>
+            <div class="button-main" id="mount-cake">
+                <div class="image"></div>
+                <a href="#" class="text-white">Montar Bolo</a>
+            </div>
+        </div>
     </main>
     <div class="menu-selection" id="dough">
-        <h1> Massa do bolo</h1>
+        <h1><img src="icons/back.svg" alt="" class="button-back">Massa do bolo</h1>
         <div class="box-options">
             <button class="button-option button-dough" data-content="Chocolate" data-code="0">Chocolate
                 <img src="icons/chocolate-bar.svg" alt=""></button>
@@ -161,10 +180,9 @@
     <div class="menu-selection">
         <h1>Quase acabando</h1>
         <div class="box-final-code">
-            <a id="send-message" class="text-white" href="#">Clique aqui para mandar o pedido!</a>
-            <div id="text-final " class="attention">
-                <p>Se quiser conferir mais bolos que fiz, poder ver aqui <a href="#">link</a>
-                </p>
+            <a id="send-message" class="text-white button" href="#">Clique aqui para mandar o pedido!</a>
+            <div id="text-final " class="attention iterable">
+                <a href="#">Se quiser conferir mais bolos que fiz, poder ver aqui </a>
             </div>
         </div>
     </div>

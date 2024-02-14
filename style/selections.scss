@@ -15,9 +15,6 @@
 h1,
 h2 {
     background-color: var(--bg-light-0);
-    padding: 1em 0 0.8em 0;
-    transform: translate(0, -50%);
-    align-items: center;
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
@@ -25,17 +22,24 @@ h2 {
 
 .menu-selection {
     width: 100%;
-    min-height: 100vh;
+    min-height: 120vh;
     background-color: #FBEDDC;
-    // position: absolute;
-    // left: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
     transition: .5s;
+
+
+    h1,
+    h2 {
+        padding: 1em 0 0.8em 0;
+        align-items: center;
+
+    }
 
     &.active {
         left: 0;
     }
-
-
 
     & h2.subitem {
         width: 50%;
@@ -88,16 +92,6 @@ h2 {
                 padding: 1em 0 1em 0;
             }
         }
-
-        .box-options,
-        .box-final-code {
-
-            .button-option {
-                width: 100%;
-            }
-        }
-
-
     }
 }
 
@@ -165,13 +159,15 @@ h2 {
             transform: translate(0, 0.1em) !important;
         }
 
-        &:active {
+        &:active,
+        &.active {
             background-color: var(--bg-light-60);
             transform: translate(0, 0.2em) !important;
         }
 
         &.active {
             background-color: var(--bg-light-60);
+            box-shadow: 0em 0em var(--bg-light-20);
             // animation-play-state: running;
         }
 

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Kalam:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Kalam:wght@300;400;700&family=Pacifico&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -74,12 +74,86 @@ html {
   overflow-x: hidden;
 }
 
+header {
+  background-color: var(--bg-light-0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header h1 {
+  font-family: "Pacifico";
+  font-weight: normal;
+}
+header img {
+  margin-right: 2em;
+  height: 10vh;
+}
+
 main {
+  position: absolute;
+  width: 100vw;
+  min-height: 90vh;
+  background-color: var(--bg-secundary-light-40);
+}
+
+.box-buttons-main {
+  margin: auto;
+  padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 65vh;
+}
+.box-buttons-main .button-main {
+  background-color: black;
+  position: relative;
+  width: 50%;
+  padding: 65px 70px 50px 65px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.527);
+  transition: box-shadow 0.25s;
+}
+.box-buttons-main .button-main:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.527);
+}
+.box-buttons-main .button-main:hover .image {
+  filter: brightness(0.7);
+}
+.box-buttons-main .button-main#galery-cakes .image {
+  background-size: cover;
+  background-position: 10% 30%;
+}
+.box-buttons-main .button-main#mount-cake .image {
+  background-size: cover;
+  background-position: 0 50%;
+}
+.box-buttons-main .button-main a,
+.box-buttons-main .button-main .image {
+  position: absolute;
+  transition: filter 0.25s;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.box-buttons-main .button-main a {
+  display: flex;
+  font-size: 1.5em;
+  font-weight: bold;
   justify-content: center;
-  width: 95vw;
-  margin: auto;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5490196078);
+  transition: text-shadow 0.25s;
+}
+.box-buttons-main .button-main a:hover {
+  text-shadow: 0em 0em 1.4em white;
+}
+.box-buttons-main .button-main#galery-cakes a {
+  background-color: rgba(0, 0, 0, 0.6588235294);
 }
 
 h1 img {
@@ -104,7 +178,12 @@ h1 img:hover {
 
 .text-white {
   color: white;
-  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
+  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5019607843);
+}
+
+.text-black {
+  color: black;
+  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5019607843);
 }
 
 .attention {
@@ -116,8 +195,25 @@ h1 img:hover {
   font-family: "Kalam" !important;
   box-sizing: border-box;
   border: 1em solid transparent;
+  transition: filter 0.25s;
+}
+.attention.iterable:hover {
+  filter: saturate(2.5);
 }
 .attention h3, .attention p {
   background-color: var(--bg-light-80);
   text-align: center;
+}
+.attention a {
+  color: #000;
+  background-color: var(--bg-light-80);
+  display: inline-block;
+  width: 100%;
+}
+
+.button {
+  transition: filter 0.25s;
+}
+.button:hover {
+  filter: saturate(2);
 }/*# sourceMappingURL=style.css.map */

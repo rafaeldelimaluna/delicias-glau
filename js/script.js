@@ -1,9 +1,9 @@
 function addSpeaker_in_BackButtons() {
     const back_buttons = [...document.getElementsByClassName('button-back')]
     const menus_selection = [...document.getElementsByClassName("menu-selection")]
-    back_buttons.map((el, i) => {
+    back_buttons.forEach((el, i) => {
         el.addEventListener('click', () => {
-            menus_selection[i + 1].classList.remove('active')
+            menus_selection[i].classList.remove('active')
         })
     })
 }
@@ -51,8 +51,8 @@ const history_of_buttons = { dough: [], fill: [], fruit: [], size: [], decoratio
 const result_portuguese = { massa: [], recheio: [], fruta: [], tamanho: [], "decoração": [] }
 var i = 0
 
-const btn_test = document.getElementById("click-test")
-btn_test.addEventListener('click', () => {
+const mount_cake = document.getElementById("mount-cake")
+mount_cake.addEventListener('click', () => {
     menu.dough.content.classList.toggle('active')
 })
 function translateKeyToPortugueseOrEnglish(entry) {
