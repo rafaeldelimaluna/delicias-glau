@@ -11,7 +11,6 @@ const fill_btns = [...document.getElementsByClassName('button-fill')]
 const fruit_btns = [...document.getElementsByClassName('button-fruit')]
 const size_btns = [...document.getElementsByClassName('button-size')]
 const decoration_btns = [...document.getElementsByClassName('button-decoration')]
-
 const next_buttons = [...document.getElementsByClassName("button-next")]
 const back_buttons = [...document.getElementsByClassName('button-back')]
 
@@ -63,7 +62,6 @@ const Table = {
         th: (th_content, colspan = '') => { Table.th_html.push(`<th colspan="${colspan}">${th_content}</th>`) },
         ths_to: { tr: () => { Table.tr_html.push(Table.th_html.join('')); Table.th_html = [] } },
         tds_to: { tr: () => { Table.tr_html.push(`<tr>${Table.td_html.join('')}</tr>`); Table.td_html = [] } },
-        // lkedmaluna da silva sauroo
         trs_to: {
             tbody: () => { Table.tbody_html.push(`${Table.tr_html.join('')}`); Table.tr_html = [] },
             thead: () => { Table.thead_html.push(`${Table.tr_html.join('')}`); Table.tr_html = [] },

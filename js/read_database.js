@@ -1,5 +1,12 @@
-// "use strict"
-import cakes from "../js/database.json" assert{type: 'json'}
+"use strict"
+async function loadCakes() {
+    const response = await fetch("../js/database.json");
+    if (!response.ok) {
+        throw new Error(`Failed to fetch database.json: ${response.status}`);
+    }
+    return response.json();
+}
+
 function makeBoloBox() {
     let bolo_box = document.createElement('div')
     bolo_box.setAttribute("class", 'bolo-box')
@@ -18,10 +25,10 @@ function createSrcImage(cake_id) {
     img.setAttribute('class', 'bolo-imagem')
     return img
 }
-function makeButton(class_attribue = 'button') {
+function makeButton(class_attribue = 'button', id) {
     const button = document.createElement('button')
     button.setAttribute('class', class_attribue)
-    button.appendChild(document.createTextNode("Pedir"))
+    button.appendChild(document.createTextNode(`Pedir #${id}`))
     return button
 }
 
@@ -45,9 +52,11 @@ function makeNewMessage(cake_id) {
     let message = `Olá Glaucia!!! Peguei como referência o bolo #${cake_id}\n`
     return message
 }
-function main() {
+async function main() {
+    const cakes = await loadCakes();
     const main = document.createElement('main')
     const body = document.querySelector('body')
+    const footer = document.querySelector("footer")
     const keys = Object.keys(cakes)
     let cake_secundary_key
     let result
@@ -69,7 +78,7 @@ function main() {
             if (result != '') {
                 if (item == 'texto') {
                     div = makeNewDiv('class', `bolo-${item}`, result)
-                    button = makeButton()
+                    button = makeButton('button', key.split('-')[1])
                     bolo_box.appendChild(div)
                     bolo_box.appendChild(button)
                 }
@@ -86,7 +95,7 @@ function main() {
         bolo_box = makeBoloBox()
     }
     )
-    body.appendChild(main)
+    body.insertBefore(main, footer)
 }
 
 main()

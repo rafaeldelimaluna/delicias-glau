@@ -80,8 +80,7 @@ header {
   align-items: center;
   justify-content: center;
 }
-header h1,
-header a.to-home {
+header h1 {
   font-family: "Pacifico";
   font-weight: normal;
 }
@@ -90,14 +89,8 @@ header img {
   height: 10vh;
 }
 
-body {
-  display: block;
-  position: relative;
-  background-color: black;
-}
-
 main {
-  position: relative;
+  position: absolute;
   width: 100vw;
   min-height: 90vh;
   background-color: var(--bg-secundary-light-40);
@@ -113,6 +106,7 @@ main {
   align-items: center;
   min-height: 65vh;
 }
+
 .box-buttons-main .button-main {
   background-color: black;
   position: relative;
@@ -223,17 +217,4 @@ h1 img:hover {
 }
 .button:hover {
   filter: saturate(2);
-}
-
-footer {
-  position: relative;
-  background-color: black;
-  margin-top: 15vh;
-  padding: 5vh;
-  padding-bottom: 20vh;
-  margin-bottom: 0;
-}
-footer h1 {
-  background-color: black;
-  font-size: small;
 }/*# sourceMappingURL=style.css.map */

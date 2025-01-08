@@ -13,11 +13,16 @@
 }
 
 h1,
-h2 {
+h2,
+header h1 a.to-home {
     background-color: var(--bg-light-0);
     text-align: center;
     color: white;
     text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
+}
+
+header h1 a.to-home {
+    text-decoration: none;
 }
 
 .menu-selection {
